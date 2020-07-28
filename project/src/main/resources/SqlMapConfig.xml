@@ -3,11 +3,22 @@
                 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
                 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <!-- 配置环境们 -->
+    <!-- environments（配置环境们）：
+
+       * default="mysql"：
+
+        比如说工程中有2个环境，
+        <environment id="mysql"></environment>
+        <environment id="oracle"></environment>
+
+        但是我们这个项目想要用oracle这个环境，所以这里要用<environments default="oracle">
+     -->
     <environments default="mysql">
         <!-- 配置具体的环境 -->
         <environment id="mysql">
-            <!-- 配置事务管理类型 -->
+            <!-- 配置事务管理类型:
+              * type="JDBC":表示使用本地事务的策略
+            -->
             <transactionManager type="JDBC"/>
             <!-- 配置是否需要使用连接池，POOLED使用，UNPOOLED不使用 -->
             <dataSource type="POOLED">
@@ -19,7 +30,7 @@
         </environment>
     </environments>
 
-    <!-- 加载映射的配置文件 -->
+    <!-- 加载映射的配置文件:使用相当路径 -->
     <mappers>
         <mapper resource="mappers/UserMapper.xml"/>
     </mappers>
