@@ -22,7 +22,6 @@ public interface UserMapper {
 
     public List<User> findByVo(QueryVo vo);
 
-    //演示resultMap配置
     public List<User> findUsers();
 
 }

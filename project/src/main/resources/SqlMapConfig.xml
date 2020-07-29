@@ -1,19 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE configuration
-                PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+
+<!--第一种：-->
+<!--<configuration>-->
+
+<!--    <properties>-->
+<!--        <property name="jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="jdbc.url" value="jdbc:mysql:///mybatis_db"/>-->
+<!--        <property name="jdbc.username" value="root"/>-->
+<!--        <property name="jdbc.password" value="root"/>-->
+<!--    </properties>-->
+
+<!--    &lt;!&ndash; 配置环境们 &ndash;&gt;-->
+<!--    <environments default="mysql">-->
+<!--        &lt;!&ndash; 配置具体的环境 &ndash;&gt;-->
+<!--        <environment id="mysql">-->
+<!--            &lt;!&ndash; 配置事务管理类型 &ndash;&gt;-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            &lt;!&ndash; 配置是否需要使用连接池，POOLED使用，UNPOOLED不使用 &ndash;&gt;-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${jdbc.driver}"/>-->
+<!--                <property name="url" value="${jdbc.url}"/>-->
+<!--                <property name="username" value="${jdbc.username}"/>-->
+<!--                <property name="password" value="${jdbc.password}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+<!--    &lt;!&ndash; 加载映射的配置文件 &ndash;&gt;-->
+<!--    <mappers>-->
+<!--        <mapper resource="mappers/UserMapper.xml"/>-->
+<!--    </mappers>-->
+<!--</configuration>-->
+
+<!--第二种：-->
 <configuration>
+    <!--
+        <properties resource="jdbc.properties"></properties>读取外部的配置文件
+        resource="文件的相对路径写法"。例如：jdbc.properties 或者 cn/tx/xxx/jdbc.properties
+    -->
+    <properties resource="jdbc.properties"></properties>
+
+    <!-- 配置环境们 -->
     <environments default="mysql">
+        <!-- 配置具体的环境 -->
         <environment id="mysql">
+            <!-- 配置事务管理类型 -->
             <transactionManager type="JDBC"/>
+            <!-- 配置是否需要使用连接池，POOLED使用，UNPOOLED不使用 -->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql:///mybatis_db"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
+
+    <!-- 加载映射的配置文件 -->
     <mappers>
         <mapper resource="mappers/UserMapper.xml"/>
     </mappers>

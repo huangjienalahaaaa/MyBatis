@@ -1,10 +1,9 @@
-v2.3  第二天
+v3.1  第二天
 
 
-第二部分：MyBatis配置文件参数:
+第二部分：MyBatis主配置文件配置:
 
 
-（ResultType）详解 -> POJO包装对象类型 
 
  
 
