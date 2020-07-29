@@ -1,4 +1,9 @@
-v1.0 第一天
+v2.2  第二天
 
 
-第一部分：完成基础的增删改查
+第二部分：MyBatis配置文件参数（parameterType和resultType）详解 -> POJO包装对象类型 
+
+ 
+
+
+

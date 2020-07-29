@@ -9,75 +9,37 @@
    		select * from user
    	</select>
 
-	<!--
-        通过id查询:
-        1. 	 id方法的名称，必须是相同的
-        	 parameterType  方法参数的类型
-        	 resultType 方法返回值的类型
-
-        2.
-        	不能使用?做占位符
-        	使用#{}来占位：SQL语句使用#{占位符的名称，名称可以任意}，仅限于基本数据类型和String类型
-        	占位符还用另外一种写法:${},但是推荐用上面这种的写法
-    -->
 	<select id="findById" resultType="cn.hj.domain.User" parameterType="int">
    		select * from user where id = #{id};
    	</select>
 
-	<!--保存操作：
-
-	1. #{OGNL表达式}，对象图导航语言，表达式语言，语法和EL表达式非常类似。
-	   但是EL表达式只能在JSP页面上使用。OGNL表达式不能能在页面上使用，也可以在配置文件中去使用。
-
-
-	2. insert into user (username,birthday,sex,address) values (#{username},#{birthday},#{sex},#{address})：
-		-> 1. insert into user (username,birthday,sex,address) 中的username,birthday,sex,address 对应的是数据库里的字段
-		   2. values (#{username},#{birthday},#{sex},#{address})中的#{username},#{birthday},#{sex},#{address 对应的是scr.main.java.cn.hj.domain.User中的字段
-	-->
 	<insert id="insert" parameterType="cn.hj.domain.User">
-		/*
-		查询id值：
-
-
-		一：
-		1. keyProperty     表示要返回的属性名称
-		2. order           取值AFTER表示插入数据(下面的insert into user (username,birthday,sex,address) values (#{username},#{birthday},#{sex},#{address})这句话)后的行为
-		3，resultType      表示返回值的类型
-
-
-		二：
-		select last_insert_id() 这句话作用是返回最后添加的数的id值（这句话也可以在navcat中执行）
-
-		*/
 		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
 			select last_insert_id();
 		</selectKey>
 		insert into user (username,birthday,sex,address) values (#{username},#{birthday},#{sex},#{address})
 	</insert>
 
-	<!-- 修改 -->
 	<update id="update" parameterType="cn.hj.domain.User">
    		update user set username = #{username},birthday = #{birthday},sex = #{sex},address=#{address} where id = #{id}
    	</update>
 
-	<!-- 删除 -->
 	<delete id="delete" parameterType="Integer">
    		delete from user where id = #{id}
    	</delete>
 
-	<!-- 模糊查询 -->
 	<select id="findByName" resultType="cn.hj.domain.User" parameterType="string">
-		<!-- 第一种方式的SQL语句（模糊查询没有拼接%,所以在调用的时候，需要我们自己传入%）：
-        select * from user where username  like #{username}
-        -->
-		<!-- 第二章SQL语句的编写（有拼接%,咋们在调用的时候不需要再传入%了）:
-				* 强调：'%${value}%'不能修改，固定写法（不推荐使用）
-		  -->
+
 		select * from user where username  like '%${value}%'
 	</select>
 
-	<!-- 具体函数的查询 -->
 	<select id="findByCount" resultType="int">
    		select count(*) from user
    	</select>
+
+	<!--包装类测试查询-->
+	<select id="findByVo" parameterType="cn.tx.domain.QueryVo" resultType="cn.tx.domain.User">
+       select * from user where username = #{user.username}
+   </select>
+
 </mapper>

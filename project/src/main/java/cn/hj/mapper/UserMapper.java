@@ -1,5 +1,6 @@
 package cn.hj.mapper;
 
+import cn.hj.domain.QueryVo;
 import cn.hj.domain.User;
 
 import java.util.List;
@@ -17,6 +18,9 @@ public interface UserMapper {
 
     public List<User> findByName(String username);
 
-    //count sum avg max min 聚合函数查询
     public Integer findByCount();
+
+    // 测试包装类查询
+    public List<User> findByVo(QueryVo vo);
+
 }
