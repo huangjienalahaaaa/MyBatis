@@ -1,4 +1,4 @@
-package cn.hj.test;
+package cn.hj.test.java.cn.hj.test;
 
 import java.io.InputStream;
 import java.util.List;
@@ -61,7 +61,7 @@ public class UserTest {
         // 获取到session对象
         SqlSession session = factory.openSession();
         // 查询所有的数据
-        List<User> list = session.selectList("cn.tx.mapper.UserMapper.findAll");
+        List<User> list = session.selectList("cn.hj.mapper.UserMapper.findAll");
         // 变量集合
         for (User user : list) {
             System.out.println(user);
