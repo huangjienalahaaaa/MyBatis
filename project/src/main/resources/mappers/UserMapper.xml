@@ -5,55 +5,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.hj.mapper.UserMapper">
-
-<!--	使用别名-->
-	<select id="findAll" resultType="user">
-   		select * from user
-   	</select>
-
 	<select id="findById" resultType="cn.hj.domain.User" parameterType="int">
    		select * from user where id = #{id};
    	</select>
-
-	<insert id="insert" parameterType="cn.hj.domain.User">
-		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-			select last_insert_id();
-		</selectKey>
-		insert into user (username,birthday,sex,address) values (#{username},#{birthday},#{sex},#{address})
-	</insert>
-
-	<update id="update" parameterType="cn.hj.domain.User">
-   		update user set username = #{username},birthday = #{birthday},sex = #{sex},address=#{address} where id = #{id}
-   	</update>
-
-	<delete id="delete" parameterType="Integer">
-   		delete from user where id = #{id}
-   	</delete>
-
-	<select id="findByName" resultType="cn.hj.domain.User" parameterType="string">
-
-		select * from user where username  like '%${value}%'
-	</select>
-
-	<select id="findByCount" resultType="int">
-   		select count(*) from user
-   	</select>
-
-	<select id="findByVo" parameterType="cn.tx.domain.QueryVo" resultType="cn.tx.domain.User">
-       select * from user where username = #{user.username}
-   </select>
-
-	<select id="findUsers" resultMap="userMap">
-     select id _id,username _username,birthday _birthday,sex _sex,address _address from user
-   </select>
-
-	<resultMap id="userMap" type="cn.tx.domain.User">
-
-		<result property="id" column="_id"/>
-		<result property="username" column="_username" />
-		<result property="birthday" column="_birthday" />
-		<result property="sex" column="_sex" />
-		<result property="address" column="_address" />
-	</resultMap>
-
 </mapper>
