@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-/**
- * 编写User的实现类，属性尽量使用包装类型
- */
 public class User  implements Serializable {
     private static final long serialVersionUID = 525400707336671154L;
 
