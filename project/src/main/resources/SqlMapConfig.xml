@@ -14,6 +14,16 @@
     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC"/>
+
+            <!--  是否要使用连接池，内置的连接池
+            type有3种写法：
+
+                1. POOLED       使用连接池（对应类PooledDataSource）
+                2. UNPOOLED     不使用连接池，底层创建连接的方式（对应类UNPooledDataSource）
+                3. JNDI         使用JNDI实现连接池(非常麻烦)
+
+
+            -->
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
