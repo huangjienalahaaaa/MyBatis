@@ -20,7 +20,9 @@ public interface UserMapper {
 
     public Integer findByCount();
 
-    // 测试包装类查询
     public List<User> findByVo(QueryVo vo);
+
+    //演示resultMap配置
+    public List<User> findUsers();
 
 }

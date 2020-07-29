@@ -5,11 +5,8 @@ import java.io.Serializable;
 
 public class QueryVo  implements Serializable {
 
-    // 自己属性
     private String name;
-    // user属性
     private User user;
-    // role属性
     private Role role;
 
     public String getName() {

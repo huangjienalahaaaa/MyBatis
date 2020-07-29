@@ -37,9 +37,30 @@
    		select count(*) from user
    	</select>
 
-	<!--包装类测试查询-->
 	<select id="findByVo" parameterType="cn.tx.domain.QueryVo" resultType="cn.tx.domain.User">
        select * from user where username = #{user.username}
    </select>
+
+	<!--演示resultMap配置-->
+	<select id="findUsers" resultMap="userMap">
+     select id _id,username _username,birthday _birthday,sex _sex,address _address from user
+   </select>
+
+	<!--
+            配置resultMap，用来进行数据封装
+            id="唯一的名称，用来被引用的"
+            type="进行封装数据的类型"
+        -->
+	<resultMap id="userMap" type="cn.tx.domain.User">
+		<!--
+                  property="JavaBean中的属性"
+                  column="表中的字段"
+              -->
+		<result property="id" column="_id"/>
+		<result property="username" column="_username" />
+		<result property="birthday" column="_birthday" />
+		<result property="sex" column="_sex" />
+		<result property="address" column="_address" />
+	</resultMap>
 
 </mapper>

@@ -12,4 +12,5 @@ public class Role implements Serializable {
 
     public void setRolename(String rolename) {
         this.rolename = rolename;
+    }
 }
