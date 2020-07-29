@@ -17,5 +17,6 @@ public interface UserMapper {
 
     public List<User> findByName(String username);
 
+    //count sum avg max min 聚合函数查询
     public Integer findByCount();
 }
