@@ -36,7 +36,6 @@ public class UserTest {
     @Test
     public void testFindAll() throws Exception {
         List<User> list = mapper.findAll();
-        // 遍历
         for (User user : list) {
             System.out.println(user);
         }
@@ -78,7 +77,6 @@ public class UserTest {
 
     @Test
     public void testFindByName() throws Exception {
-        // 1. %王表示：所有以王结尾的  2. 王%表示：所有以王开头的
         List<User> list = mapper.findByName("%王%");
         for (User user : list) {
             System.out.println(user);
