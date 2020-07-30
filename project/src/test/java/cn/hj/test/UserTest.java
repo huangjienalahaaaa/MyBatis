@@ -35,17 +35,13 @@ public class UserTest {
 
     @Test
     public void testFindByForeach() throws Exception {
-        //创建
         User user = new User();
-        //创建list集合
         List<Integer> ids = new ArrayList<>();
         ids.add(41);
         ids.add(42);
         ids.add(43);
-        //给ids属性
         user.setIds(ids);
 
-        // 条件查询
         List<User> list = mapper.findByIds(user);
         for (User user2 : list) {
             System.out.println(user2);

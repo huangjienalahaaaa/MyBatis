@@ -15,7 +15,6 @@ public class User  implements Serializable {
     private String sex;
     private String address;
 
-    //集合，存储多个id值
     private List<Integer> ids;
 
 

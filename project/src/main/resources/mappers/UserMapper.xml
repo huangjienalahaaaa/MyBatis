@@ -7,25 +7,15 @@
 <mapper namespace="cn.hj.mapper.UserMapper">
 <!--	foreach标签：
 
-
 	1.实现：
-	select * from user where id = ? or id = ? or id = ?;
+	SELECT * FROM USER WHERE id IN (1,2,3)
 
-
-
-	2.foreach标签：
-		1. collection  : 你要遍历的集合
-		2. open		  ： 开始
-		3. close 	   :结束
-		4. separator   : 分割的符号
-		5. item		   ：遍历后的元素
-		6. index 	   : 遍历后的下标值
 -->
 	<select id="findByIds" parameterType="user" resultType="user">
 		SELECT * FROM USER
 		<where>
-			<foreach collection="ids" open="id=" separator="OR id=" item="value">
-				#{value}
+			<foreach collection="ids" open="id IN (" separator="," item="i" close=")">
+				#{i}
 			</foreach>
 		</where>
 	</select>
