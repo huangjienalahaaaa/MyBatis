@@ -2,6 +2,7 @@ package cn.hj.domain;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Role  implements Serializable {
 
@@ -10,6 +11,10 @@ public class Role  implements Serializable {
     private Integer id;
     private String role_name;
     private String role_desc;
+
+    //封装user：一个角色可以被多个用户所拥有
+    private List<User> users;
+
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -39,12 +44,21 @@ public class Role  implements Serializable {
         this.role_desc = role_desc;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
                 "id=" + id +
                 ", role_name='" + role_name + '\'' +
                 ", role_desc='" + role_desc + '\'' +
+                ", users=" + users +
                 '}';
     }
 }
