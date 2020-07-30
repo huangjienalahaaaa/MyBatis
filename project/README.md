@@ -1,11 +1,10 @@
-# v6.2.2  第三天 
+# v6.3  第三天 
 
 
 
-## SQL语句拼接  ->  foreach标签-第二部分
+## include标签
 
-需求SQL：SELECT * FROM USER WHERE id IN (1,2,3)
-
+> include标签的作用：提取公用的SQL语句
 
 
 
