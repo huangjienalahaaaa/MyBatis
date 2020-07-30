@@ -6,28 +6,8 @@
 
 <mapper namespace="cn.hj.mapper.UserMapper">
 
-
-<!--定义SQL语句-->
-	<sql id="findAllSql">
-		select * from user
-	</sql>
-
-	<select id="findByWhere" parameterType="user" resultType="user">
-		-- 引入定义的SQL语句
-		<include refid="findAllSql"/>
-		<where>
-			<if test="username != null and username != ''">
-				and username like #{username}
-			</if>
-			<if test="sex != null and sex != ''">
-				and sex = #{sex}
-			</if>
-		</where>
-	</select>
-
 	<select id="findByIds" parameterType="user" resultType="user">
-		-- 引入定义的SQL语句
-		<include refid="findAllSql"/>
+		SELECT * FROM USER
 		<where>
 			<foreach collection="ids" open="id IN (" separator="," item="i" close=")">
 				#{i}
