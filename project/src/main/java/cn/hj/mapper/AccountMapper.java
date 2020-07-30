@@ -6,8 +6,10 @@ import java.util.List;
 
 
 public interface AccountMapper {
-
-    // 查询所有的账号信息，内连接的查询
+    // 立即加载
     public List<Account> findAll();
+
+    // 延迟加载
+    public List<Account> findAllLazy();
 
 }

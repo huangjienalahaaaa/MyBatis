@@ -6,24 +6,9 @@
 
 <mapper namespace="cn.hj.mapper.UserMapper">
 
-	<select id="findAll" resultMap="userMap">
-   		SELECT u.*,a.id aid,a.uid uid,a.money money FROM USER u LEFT OUTER JOIN account a ON u.id = a.UID
+	<!--通过主键查询-->
+	<select id="findById" parameterType="int" resultType="User">
+		select * from user where id = #{uid}
    	</select>
 
-	<resultMap type="user" id="userMap">
-		<id property="id" column="id"/>
-		<result property="username" column="username"/>
-		<result property="birthday" column="birthday"/>
-		<result property="sex" column="sex"/>
-		<result property="address" column="address"/>
-
-		<collection property="accounts" ofType="account">
-
-			<id property="id" column="aid"/>
-			<result property="uid" column="uid"/>
-			<result property="money" column="money"/>
-		</collection>
-
-
-	</resultMap>
 </mapper>

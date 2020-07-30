@@ -7,6 +7,13 @@
 
     <properties resource="jdbc.properties"></properties>
 
+    <settings>
+        <!-- 开启延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 将积极加载改为消极加载及按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
     <typeAliases>
         <package name="cn.hj.domain"/>
     </typeAliases>

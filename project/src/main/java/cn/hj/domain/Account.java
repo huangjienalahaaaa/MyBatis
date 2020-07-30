@@ -4,14 +4,10 @@ import java.io.Serializable;
 
 public class Account implements Serializable {
 
-    // 主键
     private Integer id;
-    // 外键
     private Integer uid;
-    // 金额
     private Double money;
 
-    // 编写User属性，该账号只能属于user用户
     private User user;
 
     public Integer getId() {
