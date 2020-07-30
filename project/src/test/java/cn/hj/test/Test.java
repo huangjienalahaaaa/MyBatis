@@ -33,15 +33,13 @@ public class UserTest {
         session.close();
     }
 
-    /**
-     * 测试一对多的查询
-     * @throws Exception
-     */
+
+//    测试多对多
     @Test
     public void testFindByForeach() throws Exception {
-        List<User> list = mapper.findAll();
-        for (User user : list) {
-            System.out.println(user);
+        List<Role> list= mapper.findAll();
+        for (Role role : list) {
+            System.out.println(role);
         }
     }
 }

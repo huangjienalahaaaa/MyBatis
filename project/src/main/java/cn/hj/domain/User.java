@@ -8,14 +8,14 @@ import java.util.List;
 public class User  implements Serializable {
 
     private static final long serialVersionUID = 525400707336671154L;
-    // 推荐基本数据类型尽量使用包装类型
+
     private Integer id;
     private String username;
     private Date birthday;
     private String sex;
     private String address;
 
-    //集合，一个用户拥有多个账号
+
     private List<Account> accounts;
 
     public static long getSerialVersionUID() {
