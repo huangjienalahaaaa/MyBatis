@@ -2,9 +2,11 @@ package cn.hj.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 public class User  implements Serializable {
+
     private static final long serialVersionUID = 525400707336671154L;
 
     private Integer id;
@@ -12,6 +14,10 @@ public class User  implements Serializable {
     private Date birthday;
     private String sex;
     private String address;
+
+    //集合，存储多个id值
+    private List<Integer> ids;
+
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -57,6 +63,14 @@ public class User  implements Serializable {
         this.address = address;
     }
 
+    public List<Integer> getIds() {
+        return ids;
+    }
+
+    public void setIds(List<Integer> ids) {
+        this.ids = ids;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -65,6 +79,7 @@ public class User  implements Serializable {
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
+                ", ids=" + ids +
                 '}';
     }
 }

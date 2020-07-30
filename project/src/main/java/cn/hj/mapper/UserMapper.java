@@ -5,5 +5,6 @@ import cn.hj.domain.User;
 import java.util.List;
 
 public interface UserMapper {
-    public List<User> findByWhere(User user);
+    //foreach标签
+    public List<User> findByIds(User user);
 }

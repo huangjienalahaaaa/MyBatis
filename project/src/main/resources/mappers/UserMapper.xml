@@ -5,16 +5,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.hj.mapper.UserMapper">
+<!--	foreach标签：
 
-	<select id="findByWhere" parameterType="user" resultType="user">
-		select * from user
+
+	1.实现：
+	select * from user where id = ? or id = ? or id = ?;
+
+
+
+	2.foreach标签：
+		1. collection  : 你要遍历的集合
+		2. open		  ： 开始
+		3. close 	   :结束
+		4. separator   : 分割的符号
+		5. item		   ：遍历后的元素
+		6. index 	   : 遍历后的下标值
+-->
+	<select id="findByIds" parameterType="user" resultType="user">
+		SELECT * FROM USER
 		<where>
-			<if test="username != null and username != ''">
-				and username like #{username}
-			</if>
-			<if test="sex != null and sex != ''">
-				and sex = #{sex}
-			</if>
+			<foreach collection="ids" open="id=" separator="OR id=" item="value">
+				#{value}
+			</foreach>
 		</where>
 	</select>
 
