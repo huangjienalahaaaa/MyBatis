@@ -13,17 +13,13 @@
 
     <environments default="mysql">
         <environment id="mysql">
-            <transactionManager type="JDBC"/>
-
-            <!--  是否要使用连接池，内置的连接池
-            type有3种写法：
-
-                1. POOLED       使用连接池（对应类PooledDataSource）
-                2. UNPOOLED     不使用连接池，底层创建连接的方式（对应类UNPooledDataSource）
-                3. JNDI         使用JNDI实现连接池(非常麻烦)
-
-
+            <!--
+                配置事务的类型，使用本地事务的策略
+                使用mysql数据库，事务管理方式
+                    1. 手动提交事务/回滚事务 setAutoCommit(false)  -> myBatis框架默认事务管理的方式
+                    2. 自动提交事务（myBatis是可以设置成自动提交的，但是不推荐）
             -->
+            <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>

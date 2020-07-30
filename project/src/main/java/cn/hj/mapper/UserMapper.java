@@ -5,7 +5,6 @@ import cn.hj.domain.User;
 import java.util.List;
 
 public interface UserMapper {
-    public List<User> findAll();
-
-    public User findById(Integer userId);
+    //删除
+    public void delete(int id);
 }
