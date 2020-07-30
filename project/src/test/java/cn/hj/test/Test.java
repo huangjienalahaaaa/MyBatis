@@ -24,7 +24,7 @@ public class UserTest {
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
         session = factory.openSession();
-        mapper = session.getMapper(UserMapper.class);
+        mapper = session.getMapper(AccountMapper.class);
     }
 
     @After
@@ -33,18 +33,15 @@ public class UserTest {
         session.close();
     }
 
+    /**
+     * 测试方法
+     * @throws Exception
+     */
     @Test
     public void testFindByForeach() throws Exception {
-        User user = new User();
-        List<Integer> ids = new ArrayList<>();
-        ids.add(41);
-        ids.add(42);
-        ids.add(43);
-        user.setIds(ids);
-
-        List<User> list = mapper.findByIds(user);
-        for (User user2 : list) {
-            System.out.println(user2);
+        List<Account> list = mapper.findAll();
+        for (Account account : list) {
+            System.out.println(account);
         }
     }
 }
