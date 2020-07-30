@@ -1,13 +1,13 @@
-# v7.1  第三天 
+# v7.2  第三天 
 
 
 
 ## 多表查询 --- 
  
-*  多对一
+*  一对多
 
 
-需求：查询的数据中包含account所有的字段，再包含用户的名称和地址
+需求：查询SELECT u.*,a.MONEY FROM USER u LEFT OUTER JOIN account a ON u.id = a.UID语句的内容
 
 
 

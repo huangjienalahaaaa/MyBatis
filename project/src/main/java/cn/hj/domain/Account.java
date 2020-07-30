@@ -11,7 +11,6 @@ public class Account  implements Serializable {
     private Integer uid;
     private Double money;
 
-    // 该帐户只属于某一个用户
     private User user;
 
 

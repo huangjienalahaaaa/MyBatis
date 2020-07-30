@@ -24,7 +24,7 @@ public class UserTest {
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
         session = factory.openSession();
-        mapper = session.getMapper(AccountMapper.class);
+        mapper = session.getMapper(User.class);
     }
 
     @After
@@ -34,14 +34,14 @@ public class UserTest {
     }
 
     /**
-     * 测试方法
+     * 测试一对多的查询
      * @throws Exception
      */
     @Test
     public void testFindByForeach() throws Exception {
-        List<Account> list = mapper.findAll();
-        for (Account account : list) {
-            System.out.println(account);
+        List<User> list = mapper.findAll();
+        for (User user : list) {
+            System.out.println(user);
         }
     }
 }

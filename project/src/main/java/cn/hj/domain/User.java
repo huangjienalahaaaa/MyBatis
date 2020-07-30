@@ -8,15 +8,15 @@ import java.util.List;
 public class User  implements Serializable {
 
     private static final long serialVersionUID = 525400707336671154L;
-
+    // 推荐基本数据类型尽量使用包装类型
     private Integer id;
     private String username;
     private Date birthday;
     private String sex;
     private String address;
 
-    private List<Integer> ids;
-
+    //集合，一个用户拥有多个账号
+    private List<Account> accounts;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -62,12 +62,12 @@ public class User  implements Serializable {
         this.address = address;
     }
 
-    public List<Integer> getIds() {
-        return ids;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setIds(List<Integer> ids) {
-        this.ids = ids;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class User  implements Serializable {
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
-                ", ids=" + ids +
+                ", accounts=" + accounts +
                 '}';
     }
 }

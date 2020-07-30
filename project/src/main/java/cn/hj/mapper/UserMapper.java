@@ -5,5 +5,6 @@ import cn.hj.domain.User;
 import java.util.List;
 
 public interface UserMapper {
-    public List<User> findByIds(User user);
+    //一对多查询
+    public List<User> findAll();
 }
