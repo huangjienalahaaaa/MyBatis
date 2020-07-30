@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tx.mapper.AccountMapper">
+
+
+    <select id="findAll" resultMap="accountMap">
+        select a.*,u.username,u.sex from account a,user u where a.uid = u.id;
+    </select>
+
+
+    <resultMap id="accountMap" type="Account">
+        <result property="id" column="id" />
+        <result property="uid" column="uid" />
+        <result property="money" column="money" />
+
+        <association property="user" javaType="User">
+            <result property="username" column="username"/>
+            <result property="sex" column="sex"/>
+        </association>
+
+    </resultMap>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

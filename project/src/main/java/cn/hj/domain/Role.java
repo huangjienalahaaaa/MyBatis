@@ -12,7 +12,7 @@ public class Role  implements Serializable {
     private String role_name;
     private String role_desc;
 
-    //封装user：一个角色可以被多个用户所拥有
+
     private List<User> users;
 
 

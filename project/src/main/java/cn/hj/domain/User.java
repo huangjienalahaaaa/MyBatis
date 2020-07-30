@@ -15,9 +15,6 @@ public class User  implements Serializable {
     private String sex;
     private String address;
 
-
-    private List<Account> accounts;
-
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -62,14 +59,6 @@ public class User  implements Serializable {
         this.address = address;
     }
 
-    public List<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -78,7 +67,6 @@ public class User  implements Serializable {
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
-                ", accounts=" + accounts +
                 '}';
     }
 }

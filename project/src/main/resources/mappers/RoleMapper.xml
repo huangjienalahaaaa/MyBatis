@@ -6,7 +6,6 @@
 
 <mapper namespace="cn.hj.mapper.RoleMapper">
 
-    <!--多对多的查询-->
     <select id="findAll" resultMap="roleMap">
    		SELECT r.*,u.username FROM USER u,user_role ur,role r WHERE u.id = ur.UID AND ur.RID = r.ID
    	</select>

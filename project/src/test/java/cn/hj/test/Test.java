@@ -34,7 +34,7 @@ public class UserTest {
     }
 
 
-//    测试多对多
+//    测试
     @Test
     public void testFindByForeach() throws Exception {
         List<Role> list= mapper.findAll();
