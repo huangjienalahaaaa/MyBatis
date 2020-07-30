@@ -6,9 +6,41 @@
 
 <mapper namespace="cn.hj.mapper.UserMapper">
 
-	<!--通过主键查询-->
 	<select id="findById" parameterType="int" resultType="User">
 		select * from user where id = #{uid}
    	</select>
+
+
+
+	<!--延迟加载-->
+	<select id="findAllLazy" resultMap="userLazyMap">
+		select * from user
+	</select>
+
+
+	<select id="userLazyMap" parameterType="int" resultType="account">
+		select * from account where uid = #{uid}
+	</select>
+
+
+	<!-- 数据封装 -->
+	<resultMap type="user" id="userLazyMap">
+		<id column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="birthday" property="birthday"/>
+		<result column="sex" property="sex"/>
+		<result column="addresss" property="addresss"/>
+
+
+		<!--
+            select="" 			使用帐户的方法查询
+            column="id" 		使用id值去查询账户
+        -->
+		<collection property="accounts" ofType="Account" select="cn.hj.mapper.AccountMapper.findByUid" column="id" fetchType="lazy">
+			<id column="id" property="id"/>
+			<result column="uid" property="uid"/>
+			<result column="money" property="money"/>
+		</collection>
+	</resultMap>
 
 </mapper>

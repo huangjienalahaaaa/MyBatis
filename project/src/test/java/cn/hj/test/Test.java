@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import cn.hj.mapper.AccountMapper;
+import cn.hj.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -25,7 +26,7 @@ public class UserTest {
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
         session = factory.openSession();
-        mapper = session.getMapper(AccountMapper.class);
+        mapper = session.getMapper(UserMapper.class);
     }
 
     @After
@@ -38,9 +39,11 @@ public class UserTest {
 //    测试 延迟加载
     @Test
     public void testFindByForeach() throws Exception {
-        List<Role> list= mapper.findAllLazy();
-        for (Account account : list) {
-            System.out.println(account.getMoney());
+        List<User> list= mapper.findAllLazy();
+        for (User user : list) {
+            System.out.println(user.getUsername());
+            //再打印账号
+            System.out.println(user.getAccounts().size());
         }
     }
 }

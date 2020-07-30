@@ -5,6 +5,8 @@ import cn.hj.domain.User;
 import java.util.List;
 
 public interface UserMapper {
-    //通过id查询
     public List<User> findById();
+
+    //延迟加载
+    public List<User> findAllLazy();
 }
