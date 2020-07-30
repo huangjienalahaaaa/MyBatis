@@ -6,6 +6,7 @@
 
 <mapper namespace="cn.hj.mapper.UserMapper">
 	<!--一对多查询-->
+	<!-- 如果出现字段冲突的话，使用别名的方式,如下面的a.id aid-->
 	<select id="findAll" resultMap="userMap">
    		SELECT u.*,a.id aid,a.uid uid,a.money money FROM USER u LEFT OUTER JOIN account a ON u.id = a.UID
    	</select>
@@ -18,6 +19,7 @@
 		<result property="address" column="address"/>
 		<!--对账号信息进行数据的封装-->
 		<collection property="accounts" ofType="account">
+<!--            <result property="id" column="id"/>  id冲突(user和account表中都有id字段)，使用别名的方式解决-->
 			<id property="id" column="aid"/>
 			<result property="uid" column="uid"/>
 			<result property="money" column="money"/>
