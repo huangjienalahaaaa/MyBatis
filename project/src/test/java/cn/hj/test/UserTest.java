@@ -33,17 +33,12 @@ public class UserTest {
         session.close();
     }
 
-    /**
-     * 测试if拼接查询
-     * @throws Exception
-     */
     @Test
     public void testDelete() throws Exception {
         User user = new User();
         user.setUsername("%王%");
         user.setSex("女");
 
-        // 条件查询
         List<User> list = dao.findByWhere(user);
         for (User user2 : list) {
             System.out.println(user2);

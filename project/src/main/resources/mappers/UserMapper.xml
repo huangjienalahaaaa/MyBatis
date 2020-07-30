@@ -5,18 +5,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.hj.mapper.UserMapper">
-	<!--if拼接查询:
 
-		拼接SQL语句，判断属性的值是否为null,使用if标签：
-			test="OGNL表达式"，判断条件，如果true,执行if里面sql，反之。
-	-->
 	<select id="findByWhere" parameterType="user" resultType="user">
-		select * from user where 1=1
-		<if test="username != null and username != ''">
-			and username like #{username}
-		</if>
-		<if test="sex != null and sex != ''">
-			and sex = #{sex}
-		</if>
+		select * from user
+		<where>
+			<if test="username != null and username != ''">
+				and username like #{username}
+			</if>
+			<if test="sex != null and sex != ''">
+				and sex = #{sex}
+			</if>
+		</where>
 	</select>
+
 </mapper>
