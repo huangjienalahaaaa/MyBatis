@@ -36,7 +36,7 @@ public class UserTest {
     }
 
 
-//    测试
+//    测试 证明二级缓存的存在
     @Test
     public void testFindByForeach() throws Exception {
 
