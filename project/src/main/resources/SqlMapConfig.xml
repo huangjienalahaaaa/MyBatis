@@ -29,7 +29,7 @@
         </environment>
     </environments>
 
-    <!--添加注解的全路径-->
+
     <mappers>
         <mapper resource="cn.hj.mapper.UserMapper"/>
     </mappers>
