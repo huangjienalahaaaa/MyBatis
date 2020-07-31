@@ -10,6 +10,7 @@
     <settings>
         <setting name="lazyLoadingEnabled" value="true"/>
         <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <typeAliases>
@@ -28,10 +29,9 @@
         </environment>
     </environments>
 
-
-    <mappers>
-        <mapper resource="mappers/UserMapper.xml"/>
-        <mapper resource="mappers/RoleMapper.xml"/>
-        <mapper resource="mappers/AccountMapper.xml"/>
-    </mappers>
+<!--    <mappers>-->
+<!--        <mapper resource="mappers/UserMapper.xml"/>-->
+<!--        <mapper resource="mappers/RoleMapper.xml"/>-->
+<!--        <mapper resource="mappers/AccountMapper.xml"/>-->
+<!--    </mappers>-->
 </configuration>

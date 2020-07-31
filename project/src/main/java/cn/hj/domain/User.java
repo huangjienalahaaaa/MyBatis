@@ -15,7 +15,6 @@ public class User  implements Serializable {
     private String sex;
     private String address;
 
-
     private List<Account> accounts;
 
     public static long getSerialVersionUID() {
