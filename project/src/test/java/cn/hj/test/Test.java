@@ -36,18 +36,15 @@ public class UserTest {
     }
 
     /**
-     * 测试 - 多对一的延迟加载
+     * 测试 - 一对多延迟加载的查询
      * @throws Exception
      */
     @Test
     public void testFindAll() throws Exception {
         // 调用方法
-        List<Account> list = mapper.findAll();
-        for (Account account : list) {
-            //验证延迟加载的话，要使用get****()的方式，
-            System.out.println(account.getMoney());
-            System.out.println(account.getUser());
+        List<User> list = mapper.findAll();
+        for (User user : list) {
+            System.out.println(user.getUsername());
+            System.out.println(user.getAccounts());
         }
     }
-
-}
