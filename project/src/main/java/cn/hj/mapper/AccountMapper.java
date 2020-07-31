@@ -10,7 +10,6 @@ public interface AccountMapper {
 
     public List<Account> findAllLazy();
 
-    //查询某个用户下所有的账号
     public List<Account> findByUid(int uid);
 
 

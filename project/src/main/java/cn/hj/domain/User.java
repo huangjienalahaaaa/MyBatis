@@ -16,8 +16,6 @@ public class User  implements Serializable {
     private String address;
 
 
-
-    //一个用户拥有多个账号
     private List<Account> accounts;
 
     public static long getSerialVersionUID() {

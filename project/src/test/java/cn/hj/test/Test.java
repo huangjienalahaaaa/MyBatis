@@ -36,10 +36,24 @@ public class UserTest {
     }
 
 
-//    测试 延迟加载
+//    测试 证明一级缓存的存在
     @Test
     public void testFindByForeach() throws Exception {
-        List<User> list= mapper.findAllLazy();
+        //先查询一级缓存，没有数据。会查询数据库，就会有SQL语句，然后把查询出来的数据存储到一级缓存中。
+        User user= mapper.findById(1);
+        //打印地址
+        System.out.println(user);
+
+
+        //在查询一次
+        //先查询一级缓存，存在数据的话，就从缓存中把数据返回，没有SQL语句。
+        User user1= mapper.findById(1);
+        //打印地址，可以看到地址是一样的跟上面的。
+        System.out.println(user1);
+
+
+
+
         for (User user : list) {
             System.out.println(user.getUsername());
             //再打印账号

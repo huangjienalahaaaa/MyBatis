@@ -24,7 +24,6 @@
         </association>
     </resultMap>
 
-<!-- 查询某个用户下所有的账号-->
     <select id="findByUid" parameterType="int" resultType="account">
 		select * from account where uid = #{id}
 	</select>
