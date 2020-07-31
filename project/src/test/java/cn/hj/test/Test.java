@@ -36,7 +36,7 @@ public class UserTest {
     }
 
     /**
-     * 测试 - 多对一的立即加载
+     * 测试 - 多对一的延迟加载
      * @throws Exception
      */
     @Test
@@ -44,9 +44,10 @@ public class UserTest {
         // 调用方法
         List<Account> list = mapper.findAll();
         for (Account account : list) {
-            System.out.println(account);
+            //验证延迟加载的话，要使用get****()的方式，
+            System.out.println(account.getMoney());
+            System.out.println(account.getUser());
         }
     }
-
 
 }
