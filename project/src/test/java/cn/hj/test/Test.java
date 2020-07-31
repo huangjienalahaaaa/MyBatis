@@ -36,15 +36,16 @@ public class UserTest {
     }
 
 
+    //测试 注解的入门程序
     @Test
     public void testFindByForeach() throws Exception {
 
-        User user= mapper.findById(1);
-        System.out.println(user);
-
-
-        User user1= mapper.findById(1);
-        System.out.println(user1);
+        List<User> list= mapper.findAll();
+       for(User user :list){
+           System.out.println(user);
+       }
+       session.close();
+       InputStream.close();
 
     }
 }

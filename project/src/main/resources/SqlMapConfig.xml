@@ -29,9 +29,9 @@
         </environment>
     </environments>
 
-<!--    <mappers>-->
-<!--        <mapper resource="mappers/UserMapper.xml"/>-->
-<!--        <mapper resource="mappers/RoleMapper.xml"/>-->
-<!--        <mapper resource="mappers/AccountMapper.xml"/>-->
-<!--    </mappers>-->
+    <!--添加注解的全路径-->
+    <mappers>
+        <mapper resource="cn.hj.mapper.UserMapper"/>
+    </mappers>
+
 </configuration>
